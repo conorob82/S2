@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Travel Adventures</title>
+    <link href="Travel.css" rel="stylesheet">
+    <meta name="description" content="Head on a journey to discover new destinations, capture moments, and share your travel adventures with fellow explorers.">
+    <meta name="keywords" content="travel, adventures, explore, destinations, share, memories">
+
+    <style>
+        .slider {width: 100%;height: 510px;position: relative;}
+        .slider img {width: 100%;height: 500px;position: absolute;top: 0;left: 0;}
+        .navigation-button {text-align: center;position: relative;}
+        .dot {cursor: pointer;height: 15px;width: 15px;margin: 0 2px;background-color: #bbb;border-radius: 50%;display: inline-block;}
+        .active,
+        .dot:hover {background-color: #717171;}
+    </style>
+</head>
+    <div class="grid-container">
+        <header class="flexbox-center">
+            <h1>Travel Adventures</h1>
+        </header>
+
+        <nav class="sticky-sidebar">
+            <ul>
+                <li><a href="index.html">🏠 Home</a></li>
+                <li><a href="Destinations.html">📍 Destinations</a></li>
+                <li><a href="Transport.html">✈️🚄 <br> Transport Options </a></li>
+                <li><a href="Submission.html">📝 <br> Share Your Adventure</a></li>
+                <li><a href="Contact.html" onclick="alert('You are heading to the CONTACT page')">📧 Contact</a></li>
+            </ul>
+        </nav>
+
+        <section>
+            <div class="slider">
+                <img id="img-1" src="Travel1.png" alt="Yosemite" />
+                <img id="img-2" src="Travel2.png" alt="Yosemite" />
+                <img id="img-3" src="Travel3.jpg" alt="Nantucket" />
+            </div>
+            <div class="navigation-button">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+            <dl>
+                <dt>Explore the World</dt>
+                <dd>Head on a journey to discover new and exciting destinations.</dd>
+                <dt>Capture Moments</dt>
+                <dd>Create memories as you explore diverse cultures and landscapes.</dd>
+                <dt>Share Your Adventures with us!!!""</dt>
+                <dd>
+                    Connect with fellow travelers and share your travel experiences.
+                    <br />
+                    <button onclick="updateParagraph()">Press here</button>
+                    <div id="demo"></div>
+                </dd>
+            </dl>
+        </section>
+
+        <div>
+            Contact me:<br>
+            <a href="mailto:info@Traveladventures.com">info@Traveladventures.com</a><br>
+            Follow me on social media: <a href="#" target="">Instagram</a>, <a href="#" target="">Twitter</a>
+        </div>
+
+        <footer id="colour">
+            <em> Copyright &copy; 2023 Conor O'Brien Adventures</em>
+            <br>
+        </footer>
+
+        <script>
+function updateParagraph() {
+                document.getElementById("demo").innerHTML = "Tell us about your own adventures in the Share your Adventure Section!";
+}
+
+var imgs = document.querySelectorAll('.slider img');
+var dots = document.querySelectorAll('.dot');
+var currentImg = 0;
+const interval = 3000;
+var timer = setInterval(changeSlide, interval);
+
+function changeSlide(n) {
+                for (var i = 0; i < imgs.length; i++) {
+                    imgs[i].style.opacity = 0;
+                    dots[i].className = dots[i].className.replace(' active', '');
+                }
+
+                currentImg = (n != undefined) ? n : (currentImg + 1) % imgs.length;
+
+                imgs[currentImg].style.opacity = 1;
+                dots[currentImg].className += ' active';
+}
+
+dots.forEach(function (dot, index) {
+                dot.addEventListener('click', function () {
+                    clearInterval(timer);
+                    changeSlide(index);
+                    timer = setInterval(changeSlide, interval);
+                });
+});
+        </script>
+    </div>
+    <!-- Image slider is adapted from: https://www.bannerbear.com/blog/how-to-create-an-image-slider-in-html-css-and-javascript/ -->
+</body>
+</html>

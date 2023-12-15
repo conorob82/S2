@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Share Your Travel Adventure</title>
+    <link href="Travel.css" rel="stylesheet">
+</head>
+<body>
+    <div class="grid-container">
+        <header class="flexbox-center">
+            <h1>Share Your Travel Adventure</h1>
+        </header>
+
+        <nav class="sticky-sidebar">
+            <ul>
+                <li><a href="index.html">🏠 Home</a></li>
+                <li><a href="Destinations.html">📍 Destinations</a></li>
+                <li><a href="Transport.html">✈️🚄 <br> Transport Options </a></li>
+                <li><a href="Submission.html">📝 <br> Share Your Adventure</a></li>
+                <li><a href="Contact.html" onclick="alert('You are heading to the CONTACT page')">📧 Contact</a></li>
+            </ul>
+        </nav>
+
+        <section>
+            <h2>Share Your Travel Adventure</h2>
+
+            <form action="submit.php" method="post">
+                <label for="name">Your Name:</label><br>
+                <input type="text" id="name" name="name" required><br>
+
+                <label for="location">Destination:</label><br>
+                <input type="text" id="location" name="location" required><br>
+
+                <label for="story">Tell us your adventure:</label><br>
+                <textarea id="story" name="story" rows="6" required></textarea><br>
+
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+
+        <div class="left" onmouseover="myfunction()">
+        </div>
+
+        <footer id="colour">
+            <em> Copyright &copy; 2023 My Travel Adventures</em>
+            <br>
+            <br>
+        </footer>
+    </div>
+</body>
+</html>
